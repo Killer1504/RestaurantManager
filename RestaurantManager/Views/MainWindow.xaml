@@ -4,9 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RestaurantManager"
+        xmlns:viewModels="clr-namespace:RestaurantManager.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding MainWindowModel.Title, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+        Height="720"
+        Width="1200"
+        WindowStartupLocation="CenterScreen"
+        x:Name="_this">
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel />
+    </Window.DataContext>
     <Grid>
-        
+
     </Grid>
 </Window>
