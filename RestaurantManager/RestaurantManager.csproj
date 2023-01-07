@@ -61,6 +61,7 @@
     <Compile Include="Commands\ManagerRestaurantCommands.cs" />
     <Compile Include="Interface\IViewModel.cs" />
     <Compile Include="Models\BillModel.cs" />
+    <Compile Include="Models\CustomModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
