@@ -39,6 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,7 +67,12 @@
     <Compile Include="Models\BillModel.cs" />
     <Compile Include="Models\CustomModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MartAdressModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\PropertyChangedNotification.cs" />
+    <Compile Include="Models\StaffModel.cs" />
+    <Compile Include="Models\StoreModel.cs" />
+    <Compile Include="Utils\GlobalVariable.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Page Include="Views\MainWindow.xaml">
@@ -99,6 +108,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -109,7 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="APIs\" />
-    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons8_cafe_1.ico" />

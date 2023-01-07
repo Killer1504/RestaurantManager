@@ -108,6 +108,35 @@ namespace RestaurantManager.Models
             }
         }
 
+        private DateTime _dateOfManufacture;
+
+        public DateTime DateOfManufactor
+        {
+            get => _dateOfManufacture;
+            set
+            {
+                if (_dateOfManufacture != value)
+                {
+                    _dateOfManufacture = value;
+                    RaisePropertyChanged(nameof(DateOfManufactor));
+                }
+            }
+        }
+
+        private DateTime _expiry;
+
+        public DateTime Expiry
+        {
+            get => _expiry;
+            set
+            {
+                if (_expiry != value)
+                {
+                    _expiry = value;
+                    RaisePropertyChanged(nameof(Expiry));
+                }
+            }
+        }
 
 
 

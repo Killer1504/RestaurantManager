@@ -72,6 +72,21 @@ namespace RestaurantManager.Models
             }
         }
 
+        private string _datePaid;
+
+        public string DatePaid
+        {
+            get => _datePaid;
+            set
+            {
+                if (_datePaid != value)
+                {
+                    _datePaid = value;
+                    RaisePropertyChanged(nameof(DatePaid));
+                }
+            }
+        }
+
 
 
 

@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace RestaurantManager.Models
 {
-    public class CustomModel : INotifyPropertyChanged
+    public class StaffModel : INotifyPropertyChanged
     {
         private string _id;
 
@@ -20,21 +20,6 @@ namespace RestaurantManager.Models
                 {
                     _id = value;
                     RaisePropertyChanged(nameof(ID));
-                }
-            }
-        }
-
-        private string _phoneNumber;
-
-        public string PhoneNumber
-        {
-            get => _phoneNumber;
-            set
-            {
-                if (_phoneNumber != value)
-                {
-                    _phoneNumber = value;
-                    RaisePropertyChanged(nameof(PhoneNumber));
                 }
             }
         }
@@ -54,20 +39,36 @@ namespace RestaurantManager.Models
             }
         }
 
-        private int _pointReward;
+        private DateTime _dateOfBirth;
 
-        public int PointReward
+        public DateTime DateOfBirth
         {
-            get => _pointReward;
+            get => _dateOfBirth;
             set
             {
-                if (_pointReward != value)
+                if (_dateOfBirth != value)
                 {
-                    _pointReward = value;
-                    RaisePropertyChanged(nameof(PointReward));
+                    _dateOfBirth = value;
+                    RaisePropertyChanged(nameof(DateOfBirth));
                 }
             }
         }
+
+        private string _province;
+
+        public string Province
+        {
+            get => _province;
+            set
+            {
+                if (_province != value)
+                {
+                    _province = value;
+                    RaisePropertyChanged(nameof(Province));
+                }
+            }
+        }
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;
