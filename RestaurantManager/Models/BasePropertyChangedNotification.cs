@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace RestaurantManager.Models
 {
-    public abstract class PropertyChangedNotification : INotifyPropertyChanged, IDataErrorInfo
+    public abstract class BasePropertyChangedNotification : INotifyPropertyChanged, IDataErrorInfo
     {
         #region Fields
 
@@ -37,7 +37,7 @@ namespace RestaurantManager.Models
         /// <typeparam name="T">The type of the property value.</typeparam>
         /// <param name="propertyName">The name of the property.</param>
         /// <param name="value">The property value.</param>
-        protected void SetValue<T>(string propertyName, T value)
+        private void SetValue<T>(string propertyName, T value)
         {
             if (string.IsNullOrEmpty(propertyName))
             {

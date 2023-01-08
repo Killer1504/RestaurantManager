@@ -7,44 +7,22 @@ using System.ComponentModel;
 
 namespace RestaurantManager.Models
 {
-    public class StatusModel : INotifyPropertyChanged
+    public class StatusModel : BasePropertyChangedNotification
     {
-        private string _status;
 
         public string Status
         {
-            get => _status;
-            set
-            {
-                if (_status != value)
-                {
-                    _status = value;
-                    RaisePropertyChanged(nameof(Status));
-                }
-            }
+            get => GetValue(() => Status);
+            set => SetValue(() => Status, value);
         }
 
-        private System.Windows.Media.Brush _statusColor;
+
 
         public System.Windows.Media.Brush StatusColor
         {
-            get => _statusColor;
-            set
-            {
-                if (_statusColor != value)
-                {
-                    _statusColor = value;
-                    RaisePropertyChanged(nameof(StatusColor));
-                }
-            }
+            get => GetValue(() => StatusColor);
+            set => SetValue(() => StatusColor, value);
         }
 
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

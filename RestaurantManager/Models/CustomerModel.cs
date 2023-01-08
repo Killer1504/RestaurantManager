@@ -3,77 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace RestaurantManager.Models
 {
-    public class CustomerModel : INotifyPropertyChanged
+    public class CustomerModel : BasePropertyChangedNotification
     {
-        private string _id;
 
         public string ID
         {
-            get => _id;
-            set
-            {
-                if (_id != value)
-                {
-                    _id = value;
-                    RaisePropertyChanged(nameof(ID));
-                }
-            }
+            get => GetValue(() => ID);
+            set => SetValue(() => ID, value);
         }
 
-        private string _phoneNumber;
-
+        [MinLength(8, ErrorMessage ="Số điện thoại ít nhất là 8 kí tự")]
         public string PhoneNumber
         {
-            get => _phoneNumber;
-            set
-            {
-                if (_phoneNumber != value)
-                {
-                    _phoneNumber = value;
-                    RaisePropertyChanged(nameof(PhoneNumber));
-                }
-            }
+            get => GetValue(() => PhoneNumber);
+            set => SetValue(() => PhoneNumber, value);
         }
 
-        private string _name;
 
         public string Name
         {
-            get => _name;
-            set
-            {
-                if (_name != value)
-                {
-                    _name = value;
-                    RaisePropertyChanged(nameof(Name));
-                }
-            }
+            get => GetValue(() => Name);
+            set => SetValue(() => Name, value);
         }
 
-        private int _pointReward;
 
+        [Range(0.0, double.MaxValue, ErrorMessage = "The field {0} must be greater than {1}.")]
         public int PointReward
         {
-            get => _pointReward;
-            set
-            {
-                if (_pointReward != value)
-                {
-                    _pointReward = value;
-                    RaisePropertyChanged(nameof(PointReward));
-                }
-            }
+            get => GetValue(() => PointReward);
+            set => SetValue(() => PointReward, value);
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
     }
 }

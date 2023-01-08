@@ -7,93 +7,59 @@ using System.ComponentModel;
 
 namespace RestaurantManager.Models
 {
-    public class MartAdressModel : INotifyPropertyChanged
+    public class MartAdressModel : BasePropertyChangedNotification
     {
-        private string _id;
 
         public string ID
         {
-            get => _id;
+            get => GetValue(() => ID);
             set
             {
-                if (_id != value)
-                {
-                    _id = value;
-                    RaisePropertyChanged(nameof(ID));
-                }
+                SetValue(() => ID, value);
             }
 
         }
 
-        private string _adress;
 
         public string Adress
         {
-            get => _adress;
+            get => GetValue(() => Adress);
             set
             {
-                if (_adress != value)
-                {
-                    _adress = value;
-                    RaisePropertyChanged(nameof(Adress));
-                }
+                SetValue(() => Adress, value);
             }
 
         }
 
-        private string _provinceOrCity;
 
         public string ProvinceOrCity
         {
-            get => _provinceOrCity;
+            get => GetValue(() => ProvinceOrCity);
             set
             {
-                if (_provinceOrCity != value)
-                {
-                    _provinceOrCity = value;
-                    RaisePropertyChanged(nameof(ProvinceOrCity));
-                }
+                SetValue(() => ProvinceOrCity, value);
             }
         }
 
-        private string _district;
 
         public string District
         {
-            get => _district;
+            get => GetValue(() => District);
             set
             {
-                if (_district != value)
-                {
-                    _district = value;
-                    RaisePropertyChanged(nameof(District));
-                }
+                SetValue(() => District, value);
             }
         }
 
-        private string _wards;
 
         public string Wards
         {
-            get => _wards;
+            get => GetValue(() => Wards);
             set
             {
-                if (_wards != value)
-                {
-                    _wards = value;
-                    RaisePropertyChanged(nameof(Wards));
-                }
+                SetValue(() => Wards, value);
             }
         }
 
-
-
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

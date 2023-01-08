@@ -8,14 +8,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RestaurantManager.Models
 {
-    public class MainWindowModel : PropertyChangedNotification
+    public class MainWindowModel : BasePropertyChangedNotification
     {
-        [MinLength(5)]
-        [MaxLength(50)]
+        [MaxLength(50, ErrorMessage ="Trường {0} không được quá {1} kí tự")]
         public string Title
         {
-            get { return GetValue(() => Title); }
-            set { SetValue(() => Title, value); }
+            get => GetValue(() => Title);
+            set => SetValue(() => Title, value);
         }
 
         public MainWindowModel()

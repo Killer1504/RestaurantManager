@@ -3,147 +3,98 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestaurantManager.Models
 {
-    public class ProductModel : INotifyPropertyChanged
+    public class ProductModel : BasePropertyChangedNotification
     {
-        private string _code;
 
-        public string Code
+        public string Barcode
         {
-            get => _code;
-            set
-            {
-                if (_code != value)
-                {
-                    _code = value;
-                    RaisePropertyChanged(nameof(Code));
-                }
-            }
+            get => GetValue(() => Barcode);
+            set => SetValue(() => Barcode, value);
         }
 
 
-        private string _name;
 
         public string Name
         {
-            get => _name;
+            get => GetValue(() => Name);
             set
             {
-                if (_name != value)
-                {
-                    _name = value;
-                    RaisePropertyChanged(nameof(Name));
-                }
+                SetValue(() => Name, value);
             }
         }
 
-        private string _category;
 
         public string Category
         {
-            get => _category;
+            get => GetValue(() => Category);
             set
             {
-                if (_category != value)
-                {
-                    _category = value;
-                    RaisePropertyChanged(nameof(Category));
-                }
+                SetValue(() => Category, value);
+            }
+        }
+
+        [Range(0, int.MaxValue)]
+        public int Quantity
+        {
+            get => GetValue(() => Quantity);
+            set
+            {
+                SetValue(() => Quantity, value);
             }
         }
 
 
-        private double _priceOrigin;
 
+        [Range(0, double.MaxValue)]
         public double PriceOrigin
         {
-            get => _priceOrigin;
+            get => GetValue(() => PriceOrigin);
             set
             {
-                if (_priceOrigin != value)
-                {
-                    _priceOrigin = value;
-                    RaisePropertyChanged(nameof(PriceOrigin));
-                }
+                SetValue(() => PriceOrigin, value);
             }
         }
 
-        private double _salePercent;
-
+        [Range(0.0, 1.0, ErrorMessage = "Phần trăm sale phải nằm trong khoảng {0} và {1}")]
         public double SalePercent
         {
-            get => _salePercent;
-            set
-            {
-                if (value >= 0 && value <= 1)
-                {
-                    if (_salePercent != value)
-                    {
-                        _salePercent = value;
-                        RaisePropertyChanged(nameof(SalePercent));
-                    }
-                }
-
-            }
+            get => GetValue(() => SalePercent);
+            set => SetValue(() => SalePercent, value);
         }
 
-        private double _saleMoney;
-
+        [Range(0, double.MaxValue)]
         public double SaleMoney
         {
-            get => _saleMoney;
+            get => GetValue(() => SaleMoney);
             set
             {
-                if (value >= 0 && value <= _priceOrigin)
+                if (value >= 0 && value <= PriceOrigin)
                 {
-                    if (_saleMoney != value)
-                    {
-                        _saleMoney = value;
-                        RaisePropertyChanged(nameof(SaleMoney));
-                    }
+                    SetValue(() => SaleMoney, value);
                 }
             }
         }
 
-        private DateTime _dateOfManufacture;
 
         public DateTime DateOfManufactor
         {
-            get => _dateOfManufacture;
-            set
-            {
-                if (_dateOfManufacture != value)
-                {
-                    _dateOfManufacture = value;
-                    RaisePropertyChanged(nameof(DateOfManufactor));
-                }
-            }
+            get => GetValue(() => DateOfManufactor);
+            set => SetValue(() => DateOfManufactor, value);
         }
 
-        private DateTime _expiry;
 
         public DateTime Expiry
         {
-            get => _expiry;
-            set
-            {
-                if (_expiry != value)
-                {
-                    _expiry = value;
-                    RaisePropertyChanged(nameof(Expiry));
-                }
-            }
+            get => GetValue(() => Expiry);
+            set => SetValue(() => Expiry, value);
         }
 
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
     }
 }

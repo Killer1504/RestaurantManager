@@ -8,93 +8,63 @@ using System.Collections.ObjectModel;
 
 namespace RestaurantManager.Models
 {
-    public class BillModel : INotifyPropertyChanged
+    public class BillModel : BasePropertyChangedNotification
     {
-        private ObservableCollection<Models.ProductModel> _productModels;
 
         public ObservableCollection<Models.ProductModel> ProductModels
         {
-            get => _productModels;
+            get => GetValue(() => ProductModels);
             set
             {
-                if (_productModels != value)
-                {
-                    _productModels = value;
-                    RaisePropertyChanged(nameof(ProductModels));
-                }
+                SetValue(() => ProductModels, value);
             }
         }
 
-        private double _amounttobePaid;
 
         public double AmoutToBePaid
         {
-            get => _amounttobePaid;
+            get => GetValue(() => AmoutToBePaid);
             set
             {
-                if (_amounttobePaid != value)
-                {
-                    _amounttobePaid = value;
-                    RaisePropertyChanged(nameof(AmoutToBePaid));
-                    AmoutReturn = AmoutCustomGive - AmoutToBePaid;
-                }
+                SetValue(() => AmoutToBePaid, value);
+                AmoutReturn = AmountCustomGive - AmoutToBePaid;
             }
         }
 
-        private double _amoutCustomGive;
 
-        public double AmoutCustomGive
+        public double AmountCustomGive
         {
-            get => _amoutCustomGive;
+            get => GetValue(() => AmountCustomGive);
             set
             {
-                if (_amoutCustomGive != value)
-                {
-                    _amoutCustomGive = value;
-                    RaisePropertyChanged(nameof(AmoutCustomGive));
-                    AmoutReturn = AmoutCustomGive - AmoutToBePaid;
-                }
+                SetValue(() => AmountCustomGive, value);
+                AmoutReturn = AmountCustomGive - AmoutToBePaid;
+
             }
         }
 
-        private double _amoutReturn;
 
         public double AmoutReturn
         {
-            get => _amoutReturn;
+            get => GetValue(() => AmoutReturn);
             private set
             {
-                if (_amoutReturn != value)
-                {
-                    _amoutReturn = value;
-                    RaisePropertyChanged(nameof(AmoutReturn));
-                }
+                SetValue(() => AmoutReturn, value);
             }
         }
 
-        private string _datePaid;
 
-        public string DatePaid
+        public DateTime DatePayment
         {
-            get => _datePaid;
+            get => GetValue(() => DatePayment);
             set
             {
-                if (_datePaid != value)
-                {
-                    _datePaid = value;
-                    RaisePropertyChanged(nameof(DatePaid));
-                }
+                SetValue(() => DatePayment, value);
             }
         }
 
 
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         public BillModel()
         {
             ProductModels = new ObservableCollection<ProductModel>();

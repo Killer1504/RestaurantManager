@@ -7,74 +7,50 @@ using System.ComponentModel;
 
 namespace RestaurantManager.Models
 {
-    public class StaffModel : INotifyPropertyChanged
+    public class StaffModel : BasePropertyChangedNotification
     {
-        private string _id;
 
         public string ID
         {
-            get => _id;
+            get => GetValue(() => ID);
             set
             {
-                if (_id != value)
-                {
-                    _id = value;
-                    RaisePropertyChanged(nameof(ID));
-                }
+                SetValue(() => ID, value);
             }
         }
 
-        private string _name;
 
         public string Name
         {
-            get => _name;
+            get => GetValue(() => Name);
             set
             {
-                if (_name != value)
-                {
-                    _name = value;
-                    RaisePropertyChanged(nameof(Name));
-                }
+                SetValue(() => Name, value);
             }
         }
 
-        private DateTime _dateOfBirth;
 
         public DateTime DateOfBirth
         {
-            get => _dateOfBirth;
+            get => GetValue(() => DateOfBirth);
             set
             {
-                if (_dateOfBirth != value)
-                {
-                    _dateOfBirth = value;
-                    RaisePropertyChanged(nameof(DateOfBirth));
-                }
+                SetValue(() => DateOfBirth, value);
             }
         }
 
-        private string _province;
 
         public string Province
         {
-            get => _province;
+            get => GetValue(() => Province);
             set
             {
-                if (_province != value)
-                {
-                    _province = value;
-                    RaisePropertyChanged(nameof(Province));
-                }
+                SetValue(() => Province, value);
             }
         }
 
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+
     }
 }

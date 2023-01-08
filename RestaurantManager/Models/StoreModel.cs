@@ -8,28 +8,14 @@ using System.Collections.ObjectModel;
 
 namespace RestaurantManager.Models
 {
-    public class StoreModel : INotifyPropertyChanged
+    public class StoreModel : BasePropertyChangedNotification
     {
-        private ObservableCollection<Models.ProductModel> _productModels;
 
         public ObservableCollection<Models.ProductModel> ProductModels
         {
-            get => _productModels;
-            set
-            {
-                if (_productModels != value)
-                {
-                    _productModels = value;
-                    RaisePropertyChanged(nameof(ProductModels));
-                }
-            }
+            get => GetValue(() => ProductModels);
+            set => SetValue(() => ProductModels, value);
         }
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

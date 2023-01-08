@@ -8,60 +8,40 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RestaurantManager.Models
 {
-    public class LoginModel : INotifyPropertyChanged
+    public class LoginModel : BasePropertyChangedNotification
     {
-        private string _userName;
-
+        [MinLength(5)]
+        [MaxLength(50)]
         public string UserName
         {
-            get => _userName;
+            get => GetValue(() => UserName);
             set
             {
-                if (_userName != value)
-                {
-                    _userName = value;
-                    RaisePropertyChanged(nameof(UserName));
-                }
+                SetValue(() => UserName, value);
             }
         }
-
-
-        private string _password;
-
+        [MinLength(8, ErrorMessage ="The filled Password must greater 8 charater")]
+        [MaxLength(50)]
         public string Password
         {
-            get => _password;
+            get => GetValue(() => Password);
             set
             {
-                if (_password != value)
-                {
-                    _password = value;
-                    RaisePropertyChanged(nameof(Password));
-                }
+                SetValue(() => Password, value);
             }
         }
 
-        private string _computerID;
 
+        [MinLength(20)]
+        [MaxLength(50)]
         public string ComputerID
         {
-            get => _computerID;
+            get => GetValue(() => ComputerID);
             set
             {
-                if (_computerID != value)
-                {
-                    _computerID = value;
-                    RaisePropertyChanged(nameof(ComputerID));
-                }
+                SetValue(() => ComputerID, value);
             }
         }
 
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
