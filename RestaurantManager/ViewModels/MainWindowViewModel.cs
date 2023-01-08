@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestaurantManager.Interface;
+using RestaurantManager.Commands;
 
 namespace RestaurantManager.ViewModels
 {
@@ -15,7 +16,7 @@ namespace RestaurantManager.ViewModels
         #endregion
 
         #region commands
-
+        public ManagerRestaurantCommands TextChangedCommand { get; set; }
         #endregion
 
         public void Init_Model()
@@ -37,5 +38,6 @@ namespace RestaurantManager.ViewModels
         {
 
         }
+
     }
 }

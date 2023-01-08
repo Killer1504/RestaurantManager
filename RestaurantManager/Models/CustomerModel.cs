@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace RestaurantManager.Models
 {
-    public class CustomModel : INotifyPropertyChanged
+    public class CustomerModel : INotifyPropertyChanged
     {
         private string _id;
 

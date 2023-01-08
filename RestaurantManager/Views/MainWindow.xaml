@@ -6,15 +6,46 @@
         xmlns:local="clr-namespace:RestaurantManager"
         xmlns:viewModels="clr-namespace:RestaurantManager.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding MainWindowModel.Title, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
         Height="720"
         Width="1200"
+        Title="Quản lý cửa hàng"
         WindowStartupLocation="CenterScreen"
         x:Name="_this">
     <Window.DataContext>
         <viewModels:MainWindowViewModel />
     </Window.DataContext>
-    <Grid>
+    <Grid Margin="5">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Margin="5 0"
+              Grid.Row="1">
+            <TextBox x:Name="txtTitle"
+                     Padding="5 0"
+                     VerticalContentAlignment="Center"
+                     Text="{Binding MainWindowModel.Email,
+                Mode=TwoWay, UpdateSourceTrigger=PropertyChanged,
+                ValidatesOnDataErrors=True,
+                NotifyOnValidationError=True}"
+                     Height="30">
 
+            </TextBox>
+
+        </Grid>
+        <Grid Grid.Row="0"
+              Margin="5 0">
+            <TextBlock Margin="5 0"
+                       Foreground="Red">
+                <Run Text="{Binding (Validation.Errors)[0].ErrorContent,
+                ElementName=txtTitle}"/>
+            </TextBlock>
+        </Grid>-->
     </Grid>
 </Window>

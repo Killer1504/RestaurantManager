@@ -4,32 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestaurantManager.Models
 {
-    public class MainWindowModel : INotifyPropertyChanged
+    public class MainWindowModel : PropertyChangedNotification
     {
-        private string _title;
-
+        [MinLength(5)]
+        [MaxLength(50)]
         public string Title
         {
-            get => _title;
-            set
-            {
-                if (_title != value)
-                {
-                    _title = value;
-                    RaisePropertyChanged(nameof(Title));
-                }
-            }
+            get { return GetValue(() => Title); }
+            set { SetValue(() => Title, value); }
         }
 
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         public MainWindowModel()
         {
             Title = "Quản lý cửa hàng";
