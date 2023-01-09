@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantManager.Interface
+namespace VfxLib.Interface
 {
     public interface IViewModel
     {

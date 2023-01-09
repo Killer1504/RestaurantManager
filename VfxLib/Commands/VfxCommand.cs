@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace RestaurantManager.Commands
+namespace VfxLib.Commands
 {
 
-    public class ManagerRestaurantCommands : ICommand
+    public class VfxCommand : ICommand
     {
         private Action<object> _targerExcuteMethod;
         private Func<bool> _targerCanExcuteMethod;
@@ -32,11 +32,11 @@ namespace RestaurantManager.Commands
         {
             _targerExcuteMethod(parameter);
         }
-        public ManagerRestaurantCommands(Action<object> __targetExcute)
+        public VfxCommand(Action<object> __targetExcute)
         {
             _targerExcuteMethod = __targetExcute;
         }
-        public ManagerRestaurantCommands(Action<object> __targetExecute, Func<bool> __targetCanExecute)
+        public VfxCommand(Action<object> __targetExecute, Func<bool> __targetCanExecute)
         {
             _targerExcuteMethod = __targetExecute;
             _targerCanExcuteMethod = __targetCanExecute; ;

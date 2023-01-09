@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using VfxLib.Models;
 
 namespace RestaurantManager.Models
 {

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics;
-using System.Linq;
 using System.Linq.Expressions;
+using System.Diagnostics;
 
-namespace RestaurantManager.Models
+namespace VfxLib.Models
 {
     public abstract class BasePropertyChangedNotification : INotifyPropertyChanged, IDataErrorInfo
     {

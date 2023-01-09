@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel;
 
-namespace RestaurantManager.Models
+namespace VfxLib.Models
 {
     public class StatusModel : BasePropertyChangedNotification
     {
-
         public string Status
         {
             get => GetValue(() => Status);
@@ -23,6 +21,5 @@ namespace RestaurantManager.Models
             get => GetValue(() => StatusColor);
             set => SetValue(() => StatusColor, value);
         }
-
     }
 }

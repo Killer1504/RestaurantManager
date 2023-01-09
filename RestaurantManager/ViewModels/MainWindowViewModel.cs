@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RestaurantManager.Interface;
-using RestaurantManager.Commands;
+using VfxLib.Interface;
+using VfxLib.Commands;
 
 namespace RestaurantManager.ViewModels
 {
@@ -16,7 +16,7 @@ namespace RestaurantManager.ViewModels
         #endregion
 
         #region commands
-        public ManagerRestaurantCommands TextChangedCommand { get; set; }
+        public VfxCommand TextChangedCommand { get; set; }
         #endregion
 
         public void Init_Model()
